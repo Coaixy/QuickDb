@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import {invoke} from '@tauri-apps/api';
 import {onMounted, ref} from 'vue'
-
+import { useRouter } from 'vue-router';
+const router = useRouter()
 const activeIndex = ref('1')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
@@ -20,8 +21,8 @@ onMounted(() => {
       <el-menu-item index="0">
         <img style="width: 100px" src="https://element-plus.gitee.io/images/element-plus-logo.svg" alt="Element logo"/>
       </el-menu-item>
-      <div class="flex-grow"/>
-      <el-menu-item index="1">操作中心</el-menu-item>
+      <div class="flex-grow" />
+      <el-menu-item index="1" @click="router.push('/')">操作中心</el-menu-item>
       <h1 class="test"></h1>
       <!--      <el-sub-menu index="2">-->
       <!--        <template #title>Workspace</template>-->

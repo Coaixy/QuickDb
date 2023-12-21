@@ -6,9 +6,7 @@ const router = useRouter()
 async function newXlsx() {
   let file = await open()
   invoke("read_xlsx", {path: file}).then(
-      resp => {
-        console.log(resp)
-      }
+      
   )
 }
 async function toData() {
