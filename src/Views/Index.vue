@@ -5,7 +5,7 @@ import {useRouter} from "vue-router";
 const router = useRouter()
 async function newXlsx() {
   let file = await open()
-  invoke("hello", {path: file}).then(
+  invoke("read_xlsx", {path: file}).then(
       resp => {
         console.log(resp)
       }

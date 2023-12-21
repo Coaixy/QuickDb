@@ -1,18 +1,10 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use calamine::DataType;
-use quickdb::data::DataObject;
-
-#[tauri::command]
-fn hello(path: String) -> Vec<Vec<String>> {
-    let mut o = DataObject::new();
-    o.read(&path);
-    return o.data;
-}
+use quickdb::cmds;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![hello])
+        .invoke_handler(tauri::generate_handler![cmds::read_xlsx,cmds::get_app_path])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
